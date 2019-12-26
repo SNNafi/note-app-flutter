@@ -6,9 +6,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission/permission.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
-
-
 class NoteDetail extends StatefulWidget {
   final appBarTitle;
   final note;
@@ -34,7 +31,6 @@ class _NoteDetailState extends State<NoteDetail> {
   @override
   void initState() {
     super.initState();
-
   }
 
   Future<void> generateExampleDocument() async {
@@ -108,12 +104,9 @@ class _NoteDetailState extends State<NoteDetail> {
           child: ListView(
             children: <Widget>[
               Container(
-
                 child: Text(
                   this.note.description,
-                  style: TextStyle(
-                      letterSpacing: 1.1
-                  ),
+                  style: TextStyle(letterSpacing: 1.1),
                   maxLines: null,
                   overflow: TextOverflow.visible,
                 ),
@@ -134,20 +127,16 @@ class _NoteDetailState extends State<NoteDetail> {
               )
             ],
           )),
-
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.picture_as_pdf),
         onPressed: () {
           debugPrint('FAB tapped');
 
-         // pdfGenerator(note.title,note.description,note.created,note.last_modified,);
+          // pdfGenerator(note.title,note.description,note.created,note.last_modified,);
           _showAlertDailogue(context);
-
         },
         tooltip: 'Add Note',
       ),
-
-
     );
   }
 
@@ -163,19 +152,17 @@ class _NoteDetailState extends State<NoteDetail> {
     }
   }
 
-
-
   requestPermissions() async {
     List<PermissionName> permissionNames = [];
 
     permissionNames.add(PermissionName.Storage);
 
-
     permissionNames.add(PermissionName.Storage);
     message = '';
     var permissions = await Permission.requestPermissions(permissionNames);
     permissions.forEach((permission) {
-      message += '${permission.permissionName}: ${permission.permissionStatus}\n';
+      message +=
+          '${permission.permissionName}: ${permission.permissionStatus}\n';
     });
     setState(() {
       message;
@@ -185,48 +172,41 @@ class _NoteDetailState extends State<NoteDetail> {
   _showAlertDailogue(BuildContext context) {
     AlertDialog alertDialog = AlertDialog(
       title: Text('Export Note as PDF'),
-      content: Text('This is an experimental feature!\n\nFor convert note to pdf and save it to phone, App needs storage permission'
-      '\n\nPDF will be saved in \'/Android/data/snnsystems.note_app/files/${note.title}.pdf\''),
+      content: Text(
+          'This is an experimental feature!\n\nFor convert note to pdf and save it to phone, App needs storage permission'
+          '\n\nPDF will be saved in \'/Android/data/snnsystems.note_app/files/${note.title}.pdf\''),
       actions: <Widget>[
-
         RaisedButton(
-
-          child: Text('Grant Permission',style: TextStyle(color: Colors.black),),
-          onPressed: (){
-
-            Navigator.pop(context);
-            requestPermissions();
-          }
-
-
-        ),
-
+            child: Text(
+              'Grant Permission',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+              requestPermissions();
+            }),
         RaisedButton(
+            child: Text(
+              'Make PDF',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+              generateExampleDocument();
 
-          child: Text('Make PDF', style: TextStyle(color: Colors.black),),
-          onPressed:(){
-
-            Navigator.pop(context);
-            generateExampleDocument();
-
-            Fluttertoast.showToast(
-                msg: 'PDF created successfully',
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIos: 2,
-                backgroundColor: Colors.black54,
-                textColor: Colors.white,
-                fontSize: 16.0);
-          }
-
-
-        )
-
+              Fluttertoast.showToast(
+                  msg: 'PDF created successfully',
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIos: 2,
+                  backgroundColor: Colors.black54,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
+            })
       ],
     );
 
     showDialog(
         context: context, builder: (BuildContext context) => alertDialog);
   }
-
 }

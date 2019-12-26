@@ -3,11 +3,6 @@ import 'package:note_app/NoteList.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:note_app/utils/theme_changer.dart';
 
-
-
-
-
-
 void main() {
   runApp(ThemeBuilder(
       defaultBrightness: Brightness.dark,
@@ -21,13 +16,8 @@ void main() {
               brightness: _brightness),
           home: splashScreen(),
         );
-      })
-  );
-  }
-
-
-
-
+      }));
+}
 
 class splashScreen extends StatefulWidget {
   @override
@@ -45,28 +35,21 @@ class _splashScreenState extends State<splashScreen> {
 
     // TODO: implement build
     return SplashScreen(
-      seconds: 3,//3
+      seconds: 3,
+      //3
       image: image,
       navigateAfterSeconds: NoteList(),
       backgroundColor: Color.fromRGBO(213, 245, 227, 1),
       title: Text(
         'Note App',
         style: TextStyle(
-
           fontSize: 40.0,
-          color:Color.fromRGBO(52, 73, 94, 1) ,
-
-
+          color: Color.fromRGBO(52, 73, 94, 1),
         ),
       ),
 
-
-
-
       photoSize: 128.0,
       loaderColor: Color.fromRGBO(244, 208, 63, 1),
-
-
     );
   }
 }

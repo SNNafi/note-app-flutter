@@ -1,25 +1,25 @@
-### Note App
-<<<<<<< HEAD
+### Note App - Flutter Example
 
-This is an example flutter app for those who want to start flutter.
+
+*This is an example flutter app for those who want to start flutter.*
 
 You can learn:
 
-1.Write Hello World App
-2.Navigate to pages
-3.User Input manage
-4..Sqflite
-5.Show Toast, Snakcbar, AlertDailogue
-6.Use spalsh screen
-7.Use flr project
-8.Request for restricted permission
-9.Save file in local storage
+1.Write Hello World App<br>
+2.Navigate to pages<br>
+3.User Input manage<br>
+4..Sqflite<br>
+5.Show Toast, Snakcbar, AlertDailogue<br>
+6.Use spalsh screen<br>
+7.Use flare project<br>
+8.Request for restricted permission<br>
+9.Save file in local storage<br><br><br>
 
 
 and I will update it regularly Ins Sha Allah
 
 
-## Play Store Link:https://play.google.com/store/apps/details?id=snnsystems.note_app
+<a href='https://play.google.com/store/apps/details?id=snnsystems.note_app&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width='200' height='80' alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 
 
 
@@ -35,6 +35,5 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-=======
-Note App - Flutter Example
->>>>>>> e5d6ee32dca66eaf1244749e9ecf85ee16472ca1
+
+

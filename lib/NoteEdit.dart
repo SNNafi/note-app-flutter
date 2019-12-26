@@ -56,121 +56,120 @@ class _NoteEditState extends State<NoteEdit> {
           body: Form(
               key: _form_key,
               child: Padding(
-            padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
-            child: ListView(
-              children: <Widget>[
-                ListTile(
-                  title: DropdownButton(
-                    items: _priorities.map((String dropDownStringItem) {
-                      return DropdownMenuItem(
-                        value: dropDownStringItem,
-                        child: Text(dropDownStringItem),
-                      );
-                    }).toList(),
-                    onChanged: (String newValueSelected) {
-                      setState(() {
-                        updatePriorityAsInt(newValueSelected);
-                      });
-                    },
-                    value: getPriorityAsString(note.priority),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
-                  child: TextFormField(
-                    style: textStyle,
-                    controller: titleController,
-                    validator: (String value) {
-                      if (value.isEmpty) {
-                        return 'Please Enter Title';
-                      }
-                    },
-                    onChanged: (value) {
-                      debugPrint('Changed');
-                      updateTitle();
-                    },
-                    decoration: InputDecoration(
-                        labelText: 'Title',
-                        hintText: 'Enter Note title',
-                        labelStyle: textStyle,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0))),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
-                  child: TextFormField(
-                    style: descriptionStyle,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                    controller: descriptionController,
-                    validator: (String value) {
-                      if (value.isEmpty) {
-                        return 'Please Enter Description';
-                      }
-                    },
-                    onChanged: (value) {
-                      debugPrint('Des Changed');
-                      updateDescription();
-                    },
-                    decoration: InputDecoration(
-                        labelText: 'Description',
-                        hintText: 'Enter Note description',
-                        labelStyle: descriptionStyle,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0))),
-                  ),
-                ),
-                Padding(
-                    padding:
-                        EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0, bottom: 30),
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: RaisedButton(
-                            textColor: Theme.of(context).primaryColorLight,
-                            color: Theme.of(context).primaryColorDark,
-                            child: Text(
-                              'Save',
-                              textScaleFactor: 1.5,
+                padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
+                child: ListView(
+                  children: <Widget>[
+                    ListTile(
+                      title: DropdownButton(
+                        items: _priorities.map((String dropDownStringItem) {
+                          return DropdownMenuItem(
+                            value: dropDownStringItem,
+                            child: Text(dropDownStringItem),
+                          );
+                        }).toList(),
+                        onChanged: (String newValueSelected) {
+                          setState(() {
+                            updatePriorityAsInt(newValueSelected);
+                          });
+                        },
+                        value: getPriorityAsString(note.priority),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
+                      child: TextFormField(
+                        style: textStyle,
+                        controller: titleController,
+                        validator: (String value) {
+                          if (value.isEmpty) {
+                            return 'Please Enter Title';
+                          }
+                        },
+                        onChanged: (value) {
+                          debugPrint('Changed');
+                          updateTitle();
+                        },
+                        decoration: InputDecoration(
+                            labelText: 'Title',
+                            hintText: 'Enter Note title',
+                            labelStyle: textStyle,
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0))),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
+                      child: TextFormField(
+                        style: descriptionStyle,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        controller: descriptionController,
+                        validator: (String value) {
+                          if (value.isEmpty) {
+                            return 'Please Enter Description';
+                          }
+                        },
+                        onChanged: (value) {
+                          debugPrint('Des Changed');
+                          updateDescription();
+                        },
+                        decoration: InputDecoration(
+                            labelText: 'Description',
+                            hintText: 'Enter Note description',
+                            labelStyle: descriptionStyle,
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0))),
+                      ),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.only(
+                            top: 15.0, left: 10.0, right: 10.0, bottom: 30),
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: RaisedButton(
+                                textColor: Theme.of(context).primaryColorLight,
+                                color: Theme.of(context).primaryColorDark,
+                                child: Text(
+                                  'Save',
+                                  textScaleFactor: 1.5,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    if (_form_key.currentState.validate()) {
+                                      debugPrint('Saved');
+                                      _save();
+                                    }
+                                  });
+                                },
+                              ),
                             ),
-                            onPressed: () {
-                              setState(() {
-                                if(_form_key.currentState.validate()){
-
-                                  debugPrint('Saved');
-                                  _save();
-
-                                }
-
-                              });
-                            },
-                          ),
-                        ),
-                        Container(
-                          width: 5.0,
-                        ),
-                        Expanded(
-                          child: RaisedButton(
-                            textColor: Theme.of(context).primaryColorLight,
-                            color: Theme.of(context).primaryColorDark,
-                            child: Text(
-                              'Delete',
-                              textScaleFactor: 1.5,
+                            Container(
+                              width: 5.0,
                             ),
-                            onPressed: () {
-                              setState(() {
-                                debugPrint('Deleted');
-                                _delete();
-                              });
-                            },
-                          ),
-                        )
-                      ],
-                    ))
-              ],
-            ),
-          )),
+                            Expanded(
+                              child: RaisedButton(
+                                textColor: Theme.of(context).primaryColorLight,
+                                color: Theme.of(context).primaryColorDark,
+                                child: Text(
+                                  'Delete',
+                                  textScaleFactor: 1.5,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    debugPrint('Deleted');
+                                    _delete();
+                                  });
+                                },
+                              ),
+                            )
+                          ],
+                        ))
+                  ],
+                ),
+              )),
         ));
   }
 

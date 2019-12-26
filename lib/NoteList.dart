@@ -11,7 +11,6 @@ import 'package:permission/permission.dart';
 class NoteList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-
     // TODO: implement createState
     return _NoteListState();
   }
@@ -27,10 +26,6 @@ class _NoteListState extends State<NoteList> {
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
     if (noteList == null) {
       noteList = List<Note>();
       updateListView();
@@ -42,32 +37,32 @@ class _NoteListState extends State<NoteList> {
         title: Text('Notes'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.lightbulb_outline,color: Colors.white,),
+            icon: Icon(
+              Icons.lightbulb_outline,
+              color: Colors.white,
+            ),
             onPressed: () {
-
               ThemeBuilder.of(context).changeTheme();
-
             },
           ),
           IconButton(
-            icon: Icon(Icons.bubble_chart,color: Colors.white,),
+            icon: Icon(
+              Icons.bubble_chart,
+              color: Colors.white,
+            ),
             onPressed: () {
-
               navigateToBreathe();
-
             },
           ),
-
           IconButton(
-            icon: Icon(Icons.info,color: Colors.white,),
+            icon: Icon(
+              Icons.info,
+              color: Colors.white,
+            ),
             onPressed: () {
-
               _showAboutInfo(context);
-
             },
           )
-
-
         ],
       ),
       body: getNoteListView(),
@@ -91,7 +86,6 @@ class _NoteListState extends State<NoteList> {
 
   ListView getNoteListView() {
     TextStyle titlestyle = Theme.of(context).textTheme.title;
-
 
     return ListView.builder(
       itemCount: count,
@@ -215,12 +209,12 @@ class _NoteListState extends State<NoteList> {
 
     permissionNames.add(PermissionName.Storage);
 
-
     permissionNames.add(PermissionName.Storage);
     message = '';
     var permissions = await Permission.requestPermissions(permissionNames);
     permissions.forEach((permission) {
-      message += '${permission.permissionName}: ${permission.permissionStatus}\n';
+      message +=
+          '${permission.permissionName}: ${permission.permissionStatus}\n';
     });
     setState(() {
       message;
@@ -230,17 +224,13 @@ class _NoteListState extends State<NoteList> {
   _showAlertDailogue(BuildContext context) {
     AlertDialog alertDialog = AlertDialog(
       title: Text('Storage Permission'),
-      content: Text('For convert note to pdf and save it to phone,\n App needs storage permission'),
+      content: Text(
+          'For convert note to pdf and save it to phone,\n App needs storage permission'),
       actions: <Widget>[
-
         RaisedButton(
-
           child: Text('Grant Permission'),
           //onPressed: requestPermissions,
-
-
         )
-
       ],
     );
 
@@ -252,24 +242,15 @@ class _NoteListState extends State<NoteList> {
     AlertDialog alertDialog = AlertDialog(
       title: Text('Note App'),
       content: Text('By SNN Systems\n\nUse Note icon from Icons8'),
-
     );
 
     showDialog(
         context: context, builder: (BuildContext context) => alertDialog);
   }
 
-
-
-
-
-
-  void navigateToBreathe()  {
-   Navigator.push(context, MaterialPageRoute(builder: (context) {
+  void navigateToBreathe() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
       return breathePage();
     }));
-
-
   }
-
 }
