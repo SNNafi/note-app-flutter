@@ -1,6 +1,27 @@
-# note_app
+### Note App
+<<<<<<< HEAD
 
-First complete flutter app
+This is an example flutter app for those who want to start flutter.
+
+You can learn:
+
+1.Write Hello World App
+2.Navigate to pages
+3.User Input manage
+4..Sqflite
+5.Show Toast, Snakcbar, AlertDailogue
+6.Use spalsh screen
+7.Use flr project
+8.Request for restricted permission
+9.Save file in local storage
+
+
+and I will update it regularly Ins Sha Allah
+
+
+## Play Store Link:https://play.google.com/store/apps/details?id=snnsystems.note_app
+
+
 
 ## Getting Started
 
@@ -14,3 +35,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+Note App - Flutter Example
+>>>>>>> e5d6ee32dca66eaf1244749e9ecf85ee16472ca1

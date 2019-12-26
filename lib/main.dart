@@ -13,7 +13,7 @@ void main() {
       defaultBrightness: Brightness.dark,
       builder: (context, _brightness) {
         return MaterialApp(
-          title: 'NoteKeeper',
+          title: 'Note App',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
               fontFamily: 'Tomorrow',
