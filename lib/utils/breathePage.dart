@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
-class breathePage extends StatelessWidget{
-
-
-
-
+class breathePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -13,7 +9,6 @@ class breathePage extends StatelessWidget{
       appBar: AppBar(
         title: Text('Just a moment !'),
       ),
-
       body: Container(
         child: FlareActor(
           "assets/breathe.flr",
@@ -22,10 +17,6 @@ class breathePage extends StatelessWidget{
           animation: "Breathing",
         ),
       ),
-
     );
   }
-
-
-
 }

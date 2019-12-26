@@ -1,5 +1,3 @@
-
-
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sql.dart';
 import 'dart:async';
@@ -99,7 +97,4 @@ class DatabaseHelper {
 
     return noteList;
   }
-
-
-
 }
